@@ -1,6 +1,6 @@
 # Vignère Explorer
 
-<small><a href="#meta">(Jump to §Meta)</a></small>
+<sub><sub><a href="#meta">(Jump to §Meta)</a></sub></sub>
 
 This little toolkit is supposed to help you crack a Vignère cipher. Not in general, of course, since the Vignère cipher is absolutely secure given a random one-time pad. No, I'm talking short-ish keylengths, and some knowledge of the message.
 
