@@ -1,3 +1,5 @@
+# coding=utf-8
+from __future__ import division, print_function, absolute_import
 from getchr import *
 def add(x,y):
     if x == "_" or y == "_":
@@ -74,6 +76,14 @@ if __name__ == '__main__':
             for line in sys.stdin:
                 print(encode(line,args[1]))
             sys.exit()
+    else:
+        print('''Usage:
+        python3 vignere.py -d|-e <key>              #en/decodes stdin
+        python3 vignere.py -m <encrypted_message>   #starts interactive mode
+
+In interactive mode, enter possible keys or expected message parts,
+use arrow keys (up and down) to change expected key size.''')
+        sys.exit()
     buffr = ""
     key_length = 1
     while True:
