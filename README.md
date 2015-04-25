@@ -1,5 +1,7 @@
 # Vignère Explorer
 
+<small><a href="#meta">(Jump to §Meta)</a></small>
+
 This little toolkit is supposed to help you crack a Vignère cipher. Not in general, of course, since the Vignère cipher is absolutely secure given a random one-time pad. No, I'm talking short-ish keylengths, and some knowledge of the message.
 
 ## The Vignère cipher
@@ -52,3 +54,11 @@ Directly above the input line, you see what the message would be if it was decry
 ![](http://i.imgur.com/uAqRE1A.png)
 
 Eureka! What happens to be the last line contains not only the correct text (minus a few blanks), but also the almost complete key! If you got there, you might further guess that the `eadert` part was either "leader" or "reader", and try them both (with the "t" appended), if you do that, you'll find the line `hell_readert_istexti_asecret (COCA_OLA)`, which confirms our previous findings and renders the task absolutely trivial. You can then either quit the tool (with Esc-Esc, or Ctrl-C), or replace the current word with `COCACOLA` and see the decoded text in the interactive mode.
+
+### Meta
+- I accept pull requests (if I like them)
+- Compatible with both Python 2 and 3
+- Requires Python and nothing else, correct me if I'm wrong.
+- To install, download. Tell me if it doesn't work on Windows/Linux/...
+- `getchr.py` is from some previous project, so don't be confused about the bottom part of it, just ignore it. I might clean it up later, but I probably won't.
+- It's all [@sarnthil](https://twitter.com/sarnthil)'s fault.
