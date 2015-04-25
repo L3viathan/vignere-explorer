@@ -40,7 +40,7 @@ def is_repetition(hay, needle):
 def build_key_from_part(keypart, index, length):
     keypart = clean(keypart)
     keypart = keypart[:length]
-    keypart = keypart[index:] + keypart[:index] + "_" * (length-len(keypart))
+    keypart = keypart[index:] + "_" * (length-len(keypart)) + keypart[:index]
     return keypart
 def guess_key(crypt, guess, length=3):
     '''Returns list of tuples of guesses for given key length'''
@@ -53,7 +53,6 @@ def guess_key(crypt, guess, length=3):
                 continue
         decoded = False
         for n in range(length):
-            print(keypart,i,n, length)
             key = build_key_from_part(keypart, (i+n) % length, length)
             decoded = decode(crypt, key)
             if guess in decoded:
