@@ -70,7 +70,7 @@ if __name__ == '__main__':
             crypt = "".join(args[1:])
         elif args[0] == "-d":
             for line in sys.stdin:
-                print(decode(line,args[1]))
+                print(decode(line,args[1]).lower())
             sys.exit()
         elif args[0] == "-e":
             for line in sys.stdin:
@@ -94,7 +94,7 @@ use arrow keys (up and down) to change expected key size.''')
         else:
             print()
         if len(buffr) > 1:
-            print("<" + buffr + ">:", decode(crypt, buffr))
+            print("<" + buffr + ">:", decode(crypt, buffr).lower())
         sys.stdout.flush()
         print("[↕"+ str(key_length) + "]> " + buffr.lower(), end="")
         sys.stdout.flush()
