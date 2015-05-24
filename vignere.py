@@ -86,14 +86,21 @@ use arrow keys (up and down) to change expected key size.''')
         sys.exit()
     buffr = ""
     key_length = 1
+    auto_increasing = False
     while True:
         print(chr(27) + "[2J")
         results = guess_key(crypt, buffr, key_length)
+        if auto_increasing:
+            if buffr and not results:
+                key_length += 1
+                continue
+            else:
+                auto_increasing = False
         for text, key in results:
             print(text.lower(), "(" + key + ")")
         else:
             print()
-        if len(buffr) > 1:
+        if len(buffr) > 0:
             print("<" + buffr + ">:", decode(crypt, buffr).lower())
         sys.stdout.flush()
         print("[↕"+ str(key_length) + "]> " + buffr.lower(), end="")
@@ -113,5 +120,10 @@ use arrow keys (up and down) to change expected key size.''')
             if buffr:
                 buffr = buffr[:-1]
                 buffr = clean(buffr)
+                key_length = 1
+                auto_increasing = True
         else:
             buffr += clean(char)
+            if clean(char):
+                key_length = 1
+                auto_increasing = True
